@@ -1,4 +1,4 @@
-package ch13;
+package chapter1.ch13;
 
 import java.util.Scanner;
 
@@ -11,6 +11,6 @@ public class ConditionTest {
 
         int inputNumA = scanner.nextInt();
         int inputNumB = scanner.nextInt();
-        System.out.println(inputNumA > inputNumB ? inputNumA : inputNumB);
+        System.out.println(Math.max(inputNumA, inputNumB));
     }
 }
