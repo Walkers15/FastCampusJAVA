@@ -1,14 +1,13 @@
-//file:noinspection GrPackage
-package com.example.demo
+package com.example.todoserver
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
 @SpringBootApplication
-class DemoApplication {
+class TodoServerApplication {
+
     static void main(String[] args) {
-        SpringApplication.run(DemoApplication, args)
-        // test
+        SpringApplication.run(TodoServerApplication, args)
     }
 
 }
