@@ -1,6 +1,5 @@
 package com.example.todoserver;
 
-import com.example.todoserver.repository.TodoRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

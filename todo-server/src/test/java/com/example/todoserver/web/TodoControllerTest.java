@@ -1,9 +1,8 @@
-package com.example.todoserver.controller;
+package com.example.todoserver.web;
 
-import com.example.todoserver.model.TodoEntity;
+import com.example.todoserver.model.TodoModel;
 import com.example.todoserver.model.TodoRequest;
 import com.example.todoserver.service.TodoService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -29,11 +27,11 @@ class TodoControllerTest {
     @MockBean
     TodoService todoService;
 
-    private TodoEntity expected;
+    private TodoModel expected;
 
     @BeforeEach
     void setup() {
-        this.expected = new TodoEntity();
+        this.expected = new TodoModel();
         this.expected.setId(0L);
         this.expected.setTitle("Test Title");
         this.expected.setOrder(0L);
@@ -45,7 +43,7 @@ class TodoControllerTest {
         when(this.todoService.add(any(TodoRequest.class)))
                 .then((i) -> {
                     TodoRequest request = i.getArgument(0, TodoRequest.class);
-                    return new TodoEntity(this.expected.getId(), request.getTitle(), this.expected.getOrder(), this.expected.getCompleted());
+                    return new TodoModel(this.expected.getId(), request.getTitle(), this.expected.getOrder(), this.expected.getCompleted());
                 });
 
         TodoRequest request = new TodoRequest();
